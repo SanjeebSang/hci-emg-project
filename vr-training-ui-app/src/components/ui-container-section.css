@@ -1,0 +1,41 @@
+.ui-container-section-root {
+    padding: 4px 4px 4px 4px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.flex-columns-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.flex-0 {
+    flex-grow: 0;
+}
+
+
+.flex-spacer {
+    flex-grow: 1;
+}
+
+.flex-childr:first-childr {
+    margin-left: 20px;
+}
+
+.flex-child:first-child {
+    margin-right: 20px;
+}
+
+.ui-container-section-divider {
+    padding-top: 4px;
+}

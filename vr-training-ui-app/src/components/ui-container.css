@@ -1,0 +1,11 @@
+.ui-container-root {
+    padding: 1% 2%;
+    height: 80%;
+    max-width: 80%;
+    margin: auto;
+}
+
+.ui-container-l2 {
+    background-color: rgba(233, 242, 243, 0.8);
+    padding: 1% 3%;
+}

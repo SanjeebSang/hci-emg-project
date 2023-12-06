@@ -1,0 +1,23 @@
+.exp-ui-image {
+    height: 100%;
+    max-width: 100%;
+    margin: auto;
+    background-color: grey;
+}
+
+.center-image-container {
+    height: 30vh;
+    margin: auto;
+}
+
+.eui-section-1 {
+    padding: 16px 8px 16px 8px;
+}
+
+/* .interactions {
+    display: flex;
+} */
+
+.eui-root {
+    padding: 3%;
+}
