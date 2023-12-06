@@ -24,16 +24,16 @@ export default function ExperimentWillStart(props) {
 		   
 			  </Link>
 		</div>
-
+{/* 
 		<Typography variant='body1'>Click the <ImpText>Audit the Experiment</ImpText> to audit/view the experiment. This will allow you to view the experiment without loading any data. 
 		Use this option in case you just want to review the experiment. </Typography>
 		<div style={{paddingTop: "16px"}}>
-		<Link to='/experiment'>
+		<Link to='/audit-experiment'>
 			
           <UnityButton>Audit the Experiment</UnityButton>
          
 			</Link>
-		</div>
+		</div> */}
 	</UiContainer>);
 }
 

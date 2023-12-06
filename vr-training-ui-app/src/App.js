@@ -14,9 +14,11 @@ function App() {
     <BrowserRouter>
    <Routes>
       <Route path="/start" element={<ExperimentWillStart />} />
-      <Route path="/experiment" element={<ExperimentCurrent />} />
+      <Route path="/experiment" element={<ExperimentCurrent auditOnly={false} />} />
       <Route path="/end" element={<ExperimentHasFinished />} />
+      <Route path="/audit-experiment" element={<ExperimentCurrent auditOnly={true} />} />
       <Route exact path="/" element={<ExperimentWillStart />} />
+      
     </Routes>
   </BrowserRouter>
   );

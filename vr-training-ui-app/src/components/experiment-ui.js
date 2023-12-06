@@ -15,13 +15,15 @@ import WristExtension from './images/Wrist_Extension.png';
 import WristFlexion from './images/Wrist_Flexion.png';
 import Ready from './images/ready.jpg';
 import ExperimentMovementNotifier from '../common/action-notifier';
+import {Link} from 'react-router-dom';
+import { IntervalLength } from '../configs';
 
 const DESCRIPTIONS = ['Hand Close', 'Hand Open', 'No Motion', 'Wrist Extension', 'Wrist Flexion'];
 const IMAGES = [HandClose, HandOpen, NoMotion, WristExtension, WristFlexion];
 
 export default class ExperimentUI extends React.Component {
 
-  intervalLength = 500;
+  intervalLength = IntervalLength;
   intervalLengthFromEnv = process.env.REACT_APP_INTERVAL_LENGTH;
 
   constructor(props) {
@@ -36,7 +38,7 @@ export default class ExperimentUI extends React.Component {
     this.actionNotifier.notifyExperimentHasStarted(Date.now());
   }
 
-  getInitialState() {
+  getInitialState(props=null) {
     return {
       rep: 1,
       epn: 1,
@@ -46,7 +48,7 @@ export default class ExperimentUI extends React.Component {
       showPreview: true,
       previewTime: 0,
       current: 0,
-      selected: [] 
+      selected: []
     };
   }
   
@@ -229,7 +231,7 @@ function ImageSection(props) {
   }
 
   if (props.ms.showPreview && props.ms.startRep) {
-    imgStyles['opacity'] = 0;
+    imgStyles['opacity'] = 0.2;
   }
 
     return(
@@ -273,6 +275,7 @@ function PreviewSection(props) {
       return(
       <UiContainerSection classes='eui-section-1' style={{color: 'black', backgroundColor: "black"}}>
         <div style={{paddingLeft: '8px'}}>
+          <div style={{marginBottom: '8px'}}><Typography variant='h5'>Preview Only. Movement will start soon.</Typography></div>
         {/* <Typography variant='body2' color=''>This is only a preview, not an experiment. This preview allows you to view the movement info before your experiment starts.</Typography> */}
         <Typography variant='body1' color=''>Next movement (#{props.ms.epn}) starts in: {timeRemainingInSeconds}</Typography>
         </div>
@@ -297,8 +300,18 @@ function ProgressSection(props) {
   let rs = 5 - cs;
   rs = rs.toFixed(1);
 
+  // let html = [];
+  // if (props.audit == true) {
+  //   html.push(<div key="audit-only-title-preview" style={{paddingLeft: '8px'}}>
+  //           <Typography variant='title' color='secondary'>Audit only. Data will not be saved.</Typography>
+  //         </div>);
+  // }
+
   return(
     <UiContainerSection classes='eui-section-1'>
+      <div style={{paddingLeft: '8px', marginBottom: '8px'}}>
+        <Typography variant='h4'>Perform Movement.</Typography>
+      </div>
       <div style={{paddingLeft: '8px'}}>
         <Typography variant='title' color='primary'>Perform the specified movement.</Typography>
       </div>
@@ -351,7 +364,11 @@ function InteractionSection(props) {
         </div>
        
         </div>
-        
+        <div className='flex-columns-reverse' style={{marginTop: '32px'}}>
+          <div className='flex-childr' style={{marginRight: '16px'}}>
+            <Link to="/start"><UnityButton>Go Back to Start Menu</UnityButton></Link>
+          </div>
+        </div>
       </UiContainerSection>);
   }
   else {

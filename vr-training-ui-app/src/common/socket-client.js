@@ -1,6 +1,7 @@
+import { SocketIpAddress, SocketPort } from '../configs';
 
-const PORT = '5006';
-const IP = '10.9.64.58';
+const PORT = SocketPort;
+const IP = SocketIpAddress;
 
 
 function log(message, error=false) {
